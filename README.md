@@ -29,11 +29,14 @@ En esta tarea se solicitaba:
 ## Herramientas utilizadas y dónde descargarlas
 
 JavaHelp 2.0.05(javahelp2_0_05.zip) y librería javahelp(javahelp-2.0.05.jar.zip)
+
 Facilitados en la tarea, no disponibles en la red.
 
 Launch4j
+
 https://sourceforge.net/projects/launch4j/files/latest/download
 
 NSIS
+
 https://sourceforge.net/projects/nsis/files/NSIS%203/3.03/nsis-3.03-setup.exe/download?use_mirror=kent&download=
 
