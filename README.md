@@ -7,7 +7,7 @@ La tarea consistía en dos ejercicios
 
 ## Ejercicio 1
 
-En esta tarea se solicitaba: 
+En este ejercicio se solicitaba: 
 
 - creación de archivos de ayuda para incorporar a JavaHelp. Fue muy útil seguir el siguiente enlace:
 
@@ -20,7 +20,7 @@ En esta tarea se solicitaba:
 
 ## Ejercicio 2
 
-En esta tarea se solicitaba:
+En este ejercicio se solicitaba:
 
 - Generar el archivo ejecutable .jar
 - Generar el archivo .exe utilizando la herramienta Launch4j, personalizando la aplicación con un icono y un splash
