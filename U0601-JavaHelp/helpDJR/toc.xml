@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<toc version="1.0">
+   <tocitem text="Ejemplo JavaHelp" target="aplicacion">
+      <tocitem text="Qui&eacute;nes somos" target="quienessomos"/>
+      <tocitem text="Comienza tu aventura" target="comienza">
+         <tocitem text="Inscripci&oacute;n" target="inscripcion"/>
+         <tocitem text="Calendario" target="calendario"/>
+      </tocitem>
+      <tocitem text="Estructura de archivos" target="estructura"/>
+   </tocitem>
+</toc>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		
+		p.codigo {
+			font-family: courier;
+			background-color: #eeeeee;
+			padding: 5 px;
+			margin-right: 10px;
+			margin-left: 10px;
+		}
+
+	</style>
+
+	<title>Estructura de archivos</title>
+</head>
+<body>
+	<h1>Estructura de archivos</h1>
+	<p>Son reseñables los siguientes archivos:</p>
+
+	<!---Fichero mapa de JavaHelp (map_file.jhm)-->
+	</br><h2>Fichero mapa de JavaHelp (map_file.jhm)</h2>
+	<p>Se trata de un fichero XML en el que le asignaremos un identificador a cada una de las p&aacute;ginas, as&iacute; como especificaremos la url. Dicho fichero tiene extenxi&oacute;n <em>.jhm (Java Help Map)</em> y lo ubicaremos como hijo del directio <em>helpDJR</em>.</p>
+	<p>El contenido del mismo es el que sigue:</p>
+	<p class="codigo">
+	  &lt;?xml version='1.0' encoding='ISO-8859-1'?&gt;<br>
+	  &lt;!DOCTYPE map<br>
+	  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN"<br>
+	  "http://java.sun.com/products/javahelp/map_2_0.dtd"&gt;<br>
+	  &lt;map version="1.0"&gt;<br>
+	  &nbsp;&nbsp;&nbsp;&lt;mapID target="aplicacion" url="html/main.html" /&gt;<br>
+	  &nbsp;&nbsp;&nbsp;&lt;mapID target="quienessomos" url="html/quienessomos.html" /&gt;<br>
+	  &nbsp;&nbsp;&nbsp;&lt;mapID target="comienza" url="html/comienza.html" /&gt;<br>
+	  &nbsp;&nbsp;&nbsp;&lt;mapID target="inscripcion" url="html/inscripcion.html" /&gt;<br>
+	  &nbsp;&nbsp;&nbsp;&lt;mapID target="calendario" url="html/calendario.html" /&gt;<br>
+	  &nbsp;&nbsp;&nbsp;&lt;mapID target="estructura" url="html/estructura.html" /&gt;<br>
+	  &lt;/map&gt;
+	</p>
+	<p>Aparte de la cabecera del XML, vemos el tag principal <em>&lt;map&gt;</em> y dentro de &eacute;l varios tag <em>&lt;mapID&gt;</em>. Cada <em>&lt;mapID&gt;</em> corresponde a un fichero html de ayuda. target es la "clave" o "nombre" que daremos al fichero html para referenciarlo a partir de este momento. url es el fichero html en s&iacute;. El path del fichero html es relativo a la ubicaci&oacute;n de este fichero mapa, por ello llevan delante el subdirectorio html en el que hemos metido todos nuestros ficheros .html.</p>
+
+	<!--Fichero de Tabla de Contenidos de JavaHelp (toc.xml)-->
+	</br><h2>Fichero de Tabla de Contenidos de JavaHelp (toc.xml)</h2>
+	<p>Es &uacute;til para mostrar la tabla de contenidos, no es m&aacute;s que una especie de "&aacute;rbol" en la que van los cap&iacute;tulos y subcapitulos de nuestra ayuda. Este fichero <em>toc.xml</em> lo colocaremos junto con el de <em>map_file.jhm</em></p>
+	<p>El contenido del mismo es el que sigue:</p>
+	<p class="codigo">
+		&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br>
+	  	&lt;toc version="1.0"&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;tocitem text="Ejemplo JavaHelp" target="aplicacion"&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tocitem text="Quiénes somos" target="quienessomos"/&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tocitem text="Comienza tu aventura" target="comienza"&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tocitem text="Inscripción" target="inscripcion"/&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tocitem text="Calendario" target="calendario"/&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tocitem&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tocitem text="Estructura de archivos" target="estructura"/&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;/tocitem&gt;<br>
+		&lt;/toc&gt;
+	</p>
+	<p>Adem&aacute;s del encabezado de XML, vemos como tag principal <em>&lt;toc&gt;</em> y luego varios tags <em>&lt;tocitem&gt;</em> que podemos ir anidando como queramos que se muestre m&aacute;s adelante el &aacute;rbol. En cada <em>&lt;tocitem&gt;</em> ponemos un text para indicar el texto visible y un target, para indicar el "identificador" del fichero html de ayuda que queremos mostrar cuando se seleccione este item en el árbol. Este "identificador" es el que le dimos anteriormente en el fichero mapa de JavaHelp. </p>
+
+	<!--Fichero Indice de JavaHelp (indice.xml)-->
+	</br><h2>Fichero Indice de JavaHelp (indice.xml)</h2>
+	<p>Otra pestaña adicional que puede tener nuestra ventana de ayuda es un &iacute;ndice alfab&eacute;tico por temas y deberemos de crearlo manualmente. Este fichero <em>index.xml</em> lo colocaremos junto con los dos anteriores, el de <em>map_file.jhm</em> y <em>toc.xml</em>.</p>
+	<p>El contenido ser&aacute; el que sigue:</p>
+	<p class="codigo">
+		&lt;?xml version='1.0' encoding='ISO-8859-1' ?&gt;<br>
+	  	&lt;!DOCTYPE index<br>
+		PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 1.0//EN"<br>
+		"http://java.sun.com/products/javahelp/index_1_0.dtd"&gt;<br>
+		&lt;index version="1.0"&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;indexitem text="Ejemplo JavaHelp" target="aplicacion"/&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;indexitem text="Quiénes somos" target="quienessomos"/&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;indexitem text="Comienza tu aventura" target="comienza"/&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;indexitem text="Inscripción" target="inscripcion"/&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;indexitem text="Calendario" target="calendario"/&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;indexitem text="Estructura de archivos" target="estructura"/&gt;<br>
+		&lt;/index&gt;
+	</p>
+	<p>Aparte de la cabecera XML, vemos un tag principal <em>&lt;index&gt;</em> y luego varios <em>&lt;indexitem&gt;</em>. Cada uno de estos <em>&lt;indexitem&gt;</em> ser&aacute;n los que se vean en la ventana. text es el texto que se mostrar&aacute; y target la clave del fichero html que se visualizar&aacute; cuando seleccionemos en la ventana el <em>&lt;indexitem&gt;</em>.</p>
+
+	<!--Pestaña de búsqueda-->
+	</br><h2>Pestaña de b&uacute;squeda</h2>
+	<p>Se trata de una pestaña opcional que si la ponemos nos saldr&aacute; una caja de b&uacute;squeda por la que podremos buscar palabras dentro de la ayuda.</p>
+	<p>Para esta ventana no necesitamos crear a mano ning&uacute;n fichero especial. Lo que s&iacute; necesitamos es ejecutar una de las herramientas que viene con JavaHelp. Esta herramienta se llama <em>jhindexer.jar</em> y lo que hace es revisar nuestros ficheros html de ayuda y generar una pequeña base de datos que sirva para hacer las b&uacute;squedas m&aacute;s r&aacute;pidas y eficientes. Si m&aacute;s adelante tocamos los ficheros html, debemos volver a ejecutar esta herramienta.</p>
+	<p>Para ejecutarla, vamos al directorio <em>helpDJR</em> y ejecutamos:</p>
+	<p class="codigo">
+		$ cd /PATH_PROYECTO/help<br>
+	  	$ java -jar /PATH_JAVAHELP/bin/jhindexer.jar html
+	</p>
+	<p>es decir, ejecutamos <em>jhindexer.jar</em> pas&aacute;ndole como par&aacute;metro el directorio donde est&aacute;n nuestros html. Esto crear&aacute; un directorio JavaHelpSearch dentro del cual estar&aacute; la base de datos creada por esta herramienta.</p>
+
+	<!--Fichero principal de configuración de JavaHelp-->
+	</br><h2>Fichero principal de configuraci&oacute;n de JavaHelp (help_set.hs)</h2>
+	<p>Ahora crearemos el fichero principal, el que lo configura todo. Este fichero va en formato XML pero se le pone extensi&oacute;n .hs (Help Set).</p>
+	<p>El contenido del mismo ser&aacute;:</p>
+	<p class="codigo">
+		&lt;?xml version="1.0" encoding='ISO-8859-1' ?&gt;<br>
+	    &lt;!DOCTYPE helpset<br>
+		PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp HelpSet Version 1.0//EN"<br>
+		"http://java.sun.com/products/javahelp/helpset_1_0.dtd"&gt;<br>
+		&lt;helpset version="1.0"&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;title&gt;Ejemplo ayuda JavaHelp&lt;/title&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;maps&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Pagina por defecto al mostrar la ayuda --&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;homeID&gt;aplicacion&lt;/homeID&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Que mapa deseamos --&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mapref location="map_file.jhm"/&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;/maps&gt; <br>
+		<br>
+		&nbsp;&nbsp;&nbsp;&lt;!-- Las Vistas que deseamos mostrar en la ayuda --&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;!-- La tabla de contenidos --&gt; <br>
+		&nbsp;&nbsp;&nbsp;&lt;view&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Tabla Contenidos&lt;/name&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;Tabla de contenidos&lt;/label&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;javax.help.TOCView&lt;/type&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;data&gt;toc.xml&lt;/data&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;/view&gt; <br>
+		<br>
+		&nbsp;&nbsp;&nbsp;&lt;!-- El indice --&gt;
+		<br>
+		&nbsp;&nbsp;&nbsp;&lt;view&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Indice&lt;/name&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;El indice&lt;/label&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;javax.help.IndexView&lt;/type&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;data&gt;indice.xml&lt;/data&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;/view&gt;<br>
+		  <br>
+		  &nbsp;&nbsp;&nbsp;&lt;!-- La pestana de busqueda --&gt;
+		  <br>
+		&nbsp;&nbsp;&nbsp;&lt;view&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Buscar&lt;/name&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;Buscar&lt;/label&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;javax.help.SearchView&lt;/type&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;data engine="com.sun.java.help.search.DefaultSearchEngine"&gt;<br>
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaHelpSearch<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/data&gt;<br>
+		&nbsp;&nbsp;&nbsp;&lt;/view&gt;<br>
+		  <br>
+		&lt;/helpset&gt;
+	</p>
+	<p>El tag principal es <em>&lt;helpset&gt;</em>.</p>
+	<p>Dentro de &eacute;l hay tres tipos de tags. </p>
+		<ul>
+		    <li>Primero un <em>&lt;title&gt;</em>, que es el t&iacute;tulo de nuestra ventana de ayuda. </li>
+	        <li>Despu&eacute;s uno obligatorio que dice d&oacute;nde est&aacute; el fichero mapa, el tag <em>&lt;maps&gt;</em>. </li>
+	        <li>Luego podemos poner varios tags <em>&lt;view&gt;</em>, cada uno correspondiente a una de las pestañas que queramos mostrar. Si no queremos pestaña, no hace falta poner el <em>&lt;view&gt;</em> correspondiente.</li>
+    	</ul>
+	<p>El tag &lt;maps&gt; lleva:</p>
+	  	<ul>
+	    	<li>Un <em>&lt;homeID&gt;</em> con la clave del fichero html que queremos que sea el que se muestre por defecto al abrir la ventana de ayuda.</li>
+        	<li>Un <em>&lt;mapref&gt;</em> en el que se indica cual es el fichero mapa de <em>JavaHelp</em>.</li>
+    	</ul>
+	<p>Ahora vamos con los <em>&lt;view&gt;</em></p>
+	  	<ul>
+	    	<li>Hemos puesto un primer <em>&lt;view&gt;</em> para la tabla de contenidos. En él indicamos un <em>&lt;label&gt;</em> que ser&aacute; el tooltip que salga si dejamos el rat&oacute;n un rato sobre la pestaña, un <em>&lt;type&gt;</em> que es la clase de <em>JavaHelp</em> que tratar&aacute; el contenido de esta pestaña y un <em>&lt;data&gt;</em> donde se dice cual es el fichero de la tabla de contenidos.</li>
+        	<li>Un segundo <em>&lt;view&gt;</em> es para el &iacute;ndice. Los tags por debajos son iguales que el anterior, pero cambia la clase <em>JavaHelp</em> que trata la pestaña y el <em>&lt;data&gt;</em> es ahora el fichero indice. </li>
+        	<li>Y un tercer <em>&lt;view&gt;</em> para la pestaña de b&uacute;squeda. Nuevamente los tres tags por debajo son iguales, pero vuelve a cambiar la clase de <em>JavaHelp</em> encargada de esta pestaña y el <em>&lt;data&gt;</em> en este caso es el nombre del subdirectorio que nos creo <em>jhindexer.jar</em>, con la base de datos de búsqueda, es decir, el directorio <em>JavaHelpSearch</em>.</li>
+    	</ul>
+	<p>Este fichero, <em>help_set.hs</em>, se guarda en el directorio <em>helpDJR</em>, junto a los otros de configuraci&oacute;n de <em>JavaHelp</em>. </p>
+
+
+</body>
+</html>
